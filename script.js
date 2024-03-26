@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var cloverTit=document.getElementById("cloverTit");
 
+    var titleTriangle = document.getElementById("title-triangle");
 
     setTimeout(() => {
         loading.style.animationName = "loading1";
@@ -41,9 +42,9 @@ document.addEventListener("DOMContentLoaded", function() {
         startSummoning();
 
         setTimeout(() => {
-        musicname.style.animationName = "fadein";
-        musicname.style.animationFillMode = "forwards";
-        musicname.style.animationDuration = "10s";
+            musicname.style.animationName = "fadein";
+            musicname.style.animationFillMode = "forwards";
+            musicname.style.animationDuration = "10s";
         }, 2000);
 
         borders.style.animationName = "borderclose";
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
         borders.style.animationDuration = "8s";
         sob.style.animationName = "unblur";
         sob.style.animationFillMode = "forwards";
-        sob.style.animationDuration = "10s";
+        sob.style.animationDuration = "27s";
         loadingText.style.animationName = "fadeout";
         loadingText.style.color = "rgb(0, 255, 0)";
         loadingText.style.animationFillMode = "forwards";
@@ -68,8 +69,15 @@ document.addEventListener("DOMContentLoaded", function() {
             cloverTit.style.animationFillMode = "forwards";
             cloverTit.style.animationDuration = "1s";
         }, 20000);
+
+        setTimeout(() => {
+            titleTriangle.style.animationName = "title-triangle";
+            titleTriangle.style.animationFillMode = "forwards";
+            titleTriangle.style.animationDuration = "16s";
+        }, 23000); 
     });
 });
+
 function summonDiamond() {
     // Create a new diamond element
     const diamond = document.createElement('div');
@@ -114,8 +122,22 @@ function summonDiamond() {
 
 // Call summonDiamond function to summon a diamond
 
+let intervalId; // Define a variable to hold the interval ID
+
 function startSummoning() {
-    setInterval(summonDiamond, 500);
+    let isFirstTwoSeconds = true; // Flag to track the first two seconds
+
+    intervalId = setInterval(() => {
+        summonDiamond(); // Call summonDiamond function to spawn a diamond
+
+        // Check if it's the first two seconds
+        if (isFirstTwoSeconds) {
+            // Set a faster spawning interval for the first two seconds
+            setTimeout(() => {
+                clearInterval(intervalId); // Clear the interval
+                intervalId = setInterval(summonDiamond, 500); // Reset interval to normal pace
+            }, 2000);
+            isFirstTwoSeconds = false; // Update the flag
+        }
+    }, 15); // Initially spawn diamonds every 100 milliseconds
 }
-
-
