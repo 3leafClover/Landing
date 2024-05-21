@@ -6,12 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
     borders.style.height = "0px";
 
     const loading = document.getElementById("loading");
+    const background = document.getElementById("background");
     const loadingText = document.getElementById("loadingtext");
     const sob = document.getElementById("sob");
     const musicname = document.getElementById("musicname");
     const logo = document.getElementById("logo");
     const cloverTit = document.getElementById("cloverTit");
     const titleTriangle = document.getElementById("title-triangle");
+    const project = document.getElementById("project");
 
     setTimeout(() => {
         loading.style.animationName = "loading1";
@@ -40,6 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
             musicname.style.animationName = "fadein";
             musicname.style.animationFillMode = "forwards";
             musicname.style.animationDuration = "10s";
+            background.style.opacity="100%";
+            setInterval(changeText, 16000);
         }, 2000);
 
         borders.style.animationName = "borderclose";
@@ -86,10 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
     
             // Reset the animation
             tritit.style.animationName = '';
-            void tritit.offsetWidth; // Trigger reflow
             tritit.style.animationName = 'trititexpand';
             tritit.style.animationFillMode = 'forwards';
             tritit.style.animationDuration = '16s';
+
+            project.style.animationName = '';
+            project.style.animationName = 'descappear';
+            project.style.animationFillMode = 'forwards';
+            project.style.animationDuration = '16s';
         }, 14000);
 
         
@@ -146,3 +154,31 @@ const startSummoning = () => {
         }
     }, 15);
 };
+
+
+const tritit = document.getElementById("tritit");
+const trititLink = document.getElementById("tritit-link");
+const project = document.getElementById("project");
+
+const trititTexts = [
+    { text: "Text 1 for Tritit", link: "https://example.com/page1" },
+    { text: "Phigros Profile", link: "https://silv.netlify.app/" },
+    { text: "Text 3 for Tritit", link: "https://example.com/page3" }
+];
+
+const projectTexts = ["Text 1 for Project", "Commissioned by Silb, this website is a recreation of the profile layout of the game phigros, with a few things changed and information requested by the commissioner to be added.", "Text 3 for Project"];
+
+let trititIndex = 0;
+let projectIndex = 0;
+
+const changeText = () => {
+    tritit.textContent = trititTexts[trititIndex].text;
+    trititLink.href = trititTexts[trititIndex].link;
+    project.textContent = projectTexts[projectIndex];
+
+    trititIndex = (trititIndex + 1) % trititTexts.length;
+    projectIndex = (projectIndex + 1) % projectTexts.length;
+};
+
+// Change text immediately and then every 16 seconds
+changeText();
