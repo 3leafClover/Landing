@@ -1,22 +1,17 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     console.log("Page loaded!");
 
-    var borders = document.getElementById("borders");
+    const borders = document.getElementById("borders");
     borders.style.width = "0px";
     borders.style.height = "0px";
 
-    var loading = document.getElementById("loading");
-    var loadingText = document.getElementById("loadingtext");
-
-    var sob = document.getElementById("sob");
-
-    var musicname=document.getElementById("musicname");
-
-    var logo=document.getElementById("logo");
-
-    var cloverTit=document.getElementById("cloverTit");
-
-    var titleTriangle = document.getElementById("title-triangle");
+    const loading = document.getElementById("loading");
+    const loadingText = document.getElementById("loadingtext");
+    const sob = document.getElementById("sob");
+    const musicname = document.getElementById("musicname");
+    const logo = document.getElementById("logo");
+    const cloverTit = document.getElementById("cloverTit");
+    const titleTriangle = document.getElementById("title-triangle");
 
     setTimeout(() => {
         loading.style.animationName = "loading1";
@@ -32,11 +27,11 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             loadingText.textContent = 'Loaded';
         }, 650);
-    }, 2000); // Change the time here, or keep it consistent with the loading animation
+    }, 5000); 
 
     borders.addEventListener("click", () => {
-        var music = document.getElementById("music");
-        var music1 = document.getElementById("music1");
+        const music = document.getElementById("music");
+        const music1 = document.getElementById("music1");
         music.play();
         music1.play();
         startSummoning();
@@ -71,73 +66,83 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 20000);
 
         setTimeout(() => {
-            titleTriangle.style.animationName = "title-triangle";
-            titleTriangle.style.animationFillMode = "forwards";
-            titleTriangle.style.animationDuration = "16s";
-        }, 23000); 
+            // Reset the animation
+            titleTriangle.style.animationName = '';
+            void titleTriangle.offsetWidth; // Trigger reflow
+            titleTriangle.style.animationName = 'title-triangle';
+            titleTriangle.style.animationFillMode = 'forwards';
+            titleTriangle.style.animationDuration = '16s';
+
+            const triangleRight = document.querySelector('.triangle-right');
+        
+            // Reset the animation
+            triangleRight.style.animationName = '';
+            void triangleRight.offsetWidth; // Trigger reflow
+            triangleRight.style.animationName = 'trisplit';
+            triangleRight.style.animationFillMode = 'forwards';
+            triangleRight.style.animationDuration = '16s';
+
+            const tritit = document.getElementById("tritit")
+    
+            // Reset the animation
+            tritit.style.animationName = '';
+            void tritit.offsetWidth; // Trigger reflow
+            tritit.style.animationName = 'trititexpand';
+            tritit.style.animationFillMode = 'forwards';
+            tritit.style.animationDuration = '16s';
+        }, 14000);
+
+        
+        
+        
     });
 });
 
-function summonDiamond() {
-    // Create a new diamond element
+const summonDiamond = () => {
     const diamond = document.createElement('div');
     diamond.classList.add('diamond');
 
-    // Generate random size between 20px and 300px for width and height
-    const size = Math.floor(Math.random() * (100 - 20));
+    const size = Math.floor(Math.random() * (100 - 20) + 20);
     diamond.style.width = size + 'px';
     diamond.style.height = size + 'px';
 
-    // Generate random left position between 0% and 100%
     const left = Math.floor(Math.random() * 101);
     diamond.style.left = left + '%';
 
-    // Generate random opacity between 0% and 100%
     const opacity = Math.floor(Math.random() * 101);
     diamond.style.opacity = opacity + '%';
 
-    // Generate random blur effect between 0px and 10px
     const blur = Math.floor(Math.random() * 5);
     diamond.style.filter = `blur(${blur}px)`;
 
-    // Apply fade-out animation with random duration between 10s and 30s
-    const fadeDuration = Math.floor(Math.random() * (120000 - 60000 + 1)) + 10000;
+    const fadeDuration = Math.floor(Math.random() * (30000 - 10000 + 1)) + 10000;
     diamond.style.animation = `fadeout ${fadeDuration}ms forwards`;
 
-    // Apply levitation animation with random duration between 30s and 80s
-    const levitateDuration = Math.floor(Math.random() * (130000 - 30000 + 1)) + 30000;
+    const levitateDuration = Math.floor(Math.random() * (80000 - 30000 + 1)) + 30000;
     diamond.style.animation += `, levitate ${levitateDuration}ms`;
 
-    // Append diamond element to the document body
-    document.body.appendChild(diamond);
+    const sob = document.getElementById("sob");
+    sob.appendChild(diamond);
 
-        // Append diamond element to the "sob" div container
-        sob.appendChild(diamond);
-
-    // Remove diamond element after animation completes
     setTimeout(() => {
         diamond.remove();
     }, fadeDuration + levitateDuration);
-}
+};
 
-// Call summonDiamond function to summon a diamond
+let intervalId;
 
-let intervalId; // Define a variable to hold the interval ID
-
-function startSummoning() {
-    let isFirstTwoSeconds = true; // Flag to track the first two seconds
+const startSummoning = () => {
+    let isFirstTwoSeconds = true;
 
     intervalId = setInterval(() => {
-        summonDiamond(); // Call summonDiamond function to spawn a diamond
+        summonDiamond();
 
-        // Check if it's the first two seconds
         if (isFirstTwoSeconds) {
-            // Set a faster spawning interval for the first two seconds
             setTimeout(() => {
-                clearInterval(intervalId); // Clear the interval
-                intervalId = setInterval(summonDiamond, 500); // Reset interval to normal pace
+                clearInterval(intervalId);
+                intervalId = setInterval(summonDiamond, 200);
             }, 2000);
-            isFirstTwoSeconds = false; // Update the flag
+            isFirstTwoSeconds = false;
         }
-    }, 15); // Initially spawn diamonds every 100 milliseconds
-}
+    }, 15);
+};

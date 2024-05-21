@@ -124,7 +124,9 @@ body{
     to{opacity: 0%;}
 }
 @keyframes unblur{
-    30%{filter: blur(0px);}
+    0%{filter: blur(14px);}
+    30%{filter: blur(0px);
+        opacity: 99%;}
     85%{filter: blur(0px);
         opacity: 99%;}
     100%{filter: blur(14px);
@@ -206,44 +208,139 @@ body{
 #title-triangle {
     position: absolute;
     top: 120%;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-delay: 4s;
 }
 
 .triangle-left {
-    border-right: 45px solid rgb(64, 210, 255);
+    border-right: 35px solid rgb(64, 210, 255);
     left: 130px;
 }
 
 .triangle-right {
-    border-left: 45px solid rgb(64, 210, 255);
-    left: 175px;
+    border-left: 35px solid rgb(64, 210, 255);
+    left: 155px;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-delay: 4s;
 }
 
 .triangle-right,
 .triangle-left {
     width: 0;
     height: 0;
-    border-top: 45px solid transparent;
-    border-bottom: 45px solid transparent;
+    border-top: 35px solid transparent;
+    border-bottom: 35px solid transparent;
     position: absolute;
 }
 
 @keyframes title-triangle {
     0% {
         top: 120%;
+        opacity: 57%;
+        filter: blur(5px);
     }
-    5% {
-        top: 16%;
+    15% {
+        top: 120%;
+        opacity: 57%;
+        filter: blur(15px);
     }
-    8% {
+    60% {
+        top: 20%;
+        opacity: 100%;
+        filter: blur(0px);
+    }
+    96% {
         top: 20%;
     }
-    94% {
-        top: 20%;
-    }
-    97% {
+    98% {
         top: 25%;
     }
     100% {
         top: -20%;
+    }
+}
+
+@keyframes trisplit{
+    0% {
+        left: 165px;
+    }
+
+    50% {
+        left: 165px;
+    }
+    53% {
+        left: 375px;
+    }
+    90% {
+        left: 375px;
+    }
+    92% {
+        left: 380px;
+    }
+    94% {
+        left: 165px;
+    }
+    100% {
+        left: 165px;
+    }
+}
+
+#tritit {
+    left: 165px;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-delay: 4s;
+    width: 0px;
+    height: 57px;
+    position: absolute;
+    background-color:  rgba(64, 210, 255, 0.301);
+    left: 165px;
+    animation-fill-mode: forwards;
+    color:  rgba(64, 210, 255, 0);
+    text-align: center;
+    padding-top: 13px;
+    font-size: 28px;
+
+}
+
+@keyframes trititexpand{
+    0% {
+        width: 0px;
+        color:  rgba(64, 210, 255, 0);
+
+    }
+
+    50% {
+        width: 0px;
+        color:  rgba(64, 210, 255, 0);
+
+    }
+    53% {
+        width: 210px;
+        color:  rgba(64, 210, 255, 0);
+    }
+    55% {
+        color:  rgb(64, 210, 255);
+    }
+    90% {
+        width: 210px;
+        color:  rgb(64, 210, 255);
+
+    }
+    92% {
+        width: 215px;
+        color:  rgba(64, 210, 255, 0);
+
+    }
+    94% {
+        width: 0px;
+        color:  rgba(64, 210, 255, 0);
+
+    }
+    100% {
+        width: 0px;
+        color:  rgba(64, 210, 255, 0);
     }
 }
