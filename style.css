@@ -478,3 +478,18 @@ body{
 
     }
 }
+#socials {
+    display: flex;
+    justify-content: center; /* Center the flex items horizontally */
+    width: 100%;
+    text-align: center; /* Center text within the flex items */
+}
+
+#socials a p {
+    text-align: center; /* Center text horizontally within the paragraphs */
+    margin: 0 15px 15px; /* Adjusted margin for paragraphs */
+    color: orange;
+}
+a{
+    text-decoration: none;
+}

@@ -31,13 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
             loadingText.textContent = 'Loaded';
         }, 650);
     });
+    let clicked = false;
 
+    
     borders.addEventListener("click", () => {
-        const music = document.getElementById("music");
-        const music1 = document.getElementById("music1");
-        music.play();
-        music1.play();
-        startSummoning();
+        if (!clicked) {
+            const music = document.getElementById("music");
+            const music1 = document.getElementById("music1");
+            music.play();
+            music1.play();
+            startSummoning();
+            clicked = true; // Set the flag to true after it's clicked once
+        }
+
 
         setTimeout(() => {
             musicname.style.animationName = "fadein";
@@ -69,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tip.style.animationName = 'rightappear';
             tip.style.animationFillMode = 'forwards';
             tip.style.animationDuration = '5s';
-        }, 18000);
+        }, 16000);
 
         setTimeout(() => {
             cloverTit.style.animationName = "fadein";
@@ -174,7 +180,7 @@ const trititTexts = [
     { text: "Note.OS", link: "https://noteos.netlify.app/" }
 ];
 
-const projectTexts = ["It is a challenging website made for those with sharp thinking skills that want to test their abilities. As more puzzles are solved, more features and story pieces are unlocked. It's Unfinished", "Silb has commissioned the recreation of the profile layout from the game Phigros on this website. Several modifications have been made, incorporating specific information provided by the commissioner.", "Utilizing Local Storage, this website ensures secure storage of notes on your device. With customizable themes and an integrated music player, it fosters creativity and functionality."];
+const projectTexts = ["It is a challenging website made for those with sharp thinking skills that want to test their abilities. As more puzzles are solved, more features and story pieces are unlocked. It's Unfinished.", "Silb has commissioned the recreation of the profile layout from the game Phigros on this website. Several modifications have been made, incorporating specific information provided by the commissioner.", "Utilizing Local Storage, this website ensures secure storage of notes on your device. With customizable themes and an integrated music player, it fosters creativity and functionality."];
 
 let trititIndex = 0;
 let projectIndex = 0;
