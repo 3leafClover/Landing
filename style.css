@@ -251,15 +251,15 @@ body{
         filter: blur(15px);
     }
     60% {
-        top: 20%;
+        top: 30%;
         opacity: 100%;
         filter: blur(0px);
     }
-    96% {
-        top: 20%;
+    97% {
+        top: 30%;
     }
     98% {
-        top: 25%;
+        top: 35%;
     }
     100% {
         top: -20%;
@@ -328,14 +328,14 @@ body{
     56% {
         opacity: 100%;
         width: 0px;
-        height: 200px;
+        height: 120px;
         color: rgba(0, 0, 0, 0);
         padding: 0px;
 
     }
     60% {
         width: 500px;
-        height: 200px;
+        height: 120px;
         color: rgba(0, 0, 0, 0);
         padding: 7px;
     }
@@ -348,14 +348,14 @@ body{
     90% {
         opacity: 100%;
         width: 500px;
-        height: 200px;
+        height: 120px;
         color: rgba(0, 0, 0, 0);
         padding: 7px;
     }
     94% {
         opacity: 100%;
         width: 0px;
-        height: 200px;
+        height: 120px;
         color: rgba(0, 0, 0, 0);
         padding: 0px;
     }
@@ -375,13 +375,14 @@ body{
     width: 0px;
     height: 0px;
     border: 1px solid rgb(64, 210, 255);
-    top: 37%;
+    top: 47%;
     left: 135px;
     background-color: black;
     animation-iteration-count: infinite;
     animation-delay: 4s;
     animation-fill-mode: forwards;
     opacity: 0%;
+
 }
 
 
@@ -422,5 +423,58 @@ body{
     100% {
         width: 0px;
         color:  rgba(64, 210, 255, 0);
+    }
+}
+#right{
+    position: absolute;
+    right: 100px;
+    top: 35%;
+    height: 00px;
+    width: 00px;
+    background-color: black;
+    border:1px solid orange;
+    padding-left: 15px;
+    opacity: 0%;
+    padding-right: 15px;
+}
+#tip{
+    position: absolute;
+    opacity: 50%;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation-delay: 10s;
+}
+@keyframes rightappear{
+    0% {
+        opacity: 0%;
+        color: rgba(0, 0, 0, 0);
+        padding: 0px;
+    }
+    25%{
+        opacity: 100%;
+    }
+    26%{
+        padding: 0px;
+        height: 200px;
+        width: 00px;
+    }
+    50%{
+        padding-left: 15px;
+        padding-right: 15px;
+        height: 200px;
+        width: 400px;
+        color: rgba(0, 0, 0, 0);
+        box-shadow: 30px 30px rgba(255, 166, 0, 0);
+
+    }
+    100%{
+        opacity: 100%;
+        color: rgb(255, 255, 255);
+        box-shadow: 30px 30px rgba(255, 166, 0, 0.11);
+        height: 200px;
+        width: 400px;
+
     }
 }

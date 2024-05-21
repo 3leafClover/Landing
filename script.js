@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cloverTit = document.getElementById("cloverTit");
     const titleTriangle = document.getElementById("title-triangle");
     const project = document.getElementById("project");
+    const tip = document.getElementById("right");
 
     setTimeout(() => {
         loading.style.animationName = "loading1";
@@ -21,15 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
         loading.style.animationDuration = "1s";
     }, 2000);
 
-    setTimeout(() => {
+    window.addEventListener("load", () => {
         borders.style.animationName = "borders";
         borders.style.animationFillMode = "forwards";
         borders.style.animationDuration = "1s";
-
+        // Start the border animation after the page is loaded
         setTimeout(() => {
             loadingText.textContent = 'Loaded';
-        }, 650);
-    }, 5000); 
+        }, 2000);
+    });
 
     borders.addEventListener("click", () => {
         const music = document.getElementById("music");
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             musicname.style.animationFillMode = "forwards";
             musicname.style.animationDuration = "10s";
             background.style.opacity="100%";
-            setInterval(changeText, 16000);
+            setInterval(changeText, 21000);
         }, 2000);
 
         borders.style.animationName = "borderclose";
@@ -64,6 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 11000);
 
         setTimeout(() => {
+            tip.style.animationName = '';
+            tip.style.animationName = 'rightappear';
+            tip.style.animationFillMode = 'forwards';
+            tip.style.animationDuration = '5s';
+        }, 18000);
+
+        setTimeout(() => {
             cloverTit.style.animationName = "fadein";
             cloverTit.style.animationFillMode = "forwards";
             cloverTit.style.animationDuration = "1s";
@@ -75,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
             void titleTriangle.offsetWidth; // Trigger reflow
             titleTriangle.style.animationName = 'title-triangle';
             titleTriangle.style.animationFillMode = 'forwards';
-            titleTriangle.style.animationDuration = '16s';
+            titleTriangle.style.animationDuration = '21s';
 
             const triangleRight = document.querySelector('.triangle-right');
         
@@ -84,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             void triangleRight.offsetWidth; // Trigger reflow
             triangleRight.style.animationName = 'trisplit';
             triangleRight.style.animationFillMode = 'forwards';
-            triangleRight.style.animationDuration = '16s';
+            triangleRight.style.animationDuration = '21s';
 
             const tritit = document.getElementById("tritit")
     
@@ -92,12 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
             tritit.style.animationName = '';
             tritit.style.animationName = 'trititexpand';
             tritit.style.animationFillMode = 'forwards';
-            tritit.style.animationDuration = '16s';
+            tritit.style.animationDuration = '21s';
 
             project.style.animationName = '';
             project.style.animationName = 'descappear';
             project.style.animationFillMode = 'forwards';
-            project.style.animationDuration = '16s';
+            project.style.animationDuration = '21s';
         }, 14000);
 
         
@@ -161,12 +169,12 @@ const trititLink = document.getElementById("tritit-link");
 const project = document.getElementById("project");
 
 const trititTexts = [
-    { text: "Text 1 for Tritit", link: "https://example.com/page1" },
+    { text: "Puzzle Probe", link: "https://puzzleprobe.netlify.app/" },
     { text: "Phigros Profile", link: "https://silv.netlify.app/" },
-    { text: "Text 3 for Tritit", link: "https://example.com/page3" }
+    { text: "Note.OS", link: "https://noteos.netlify.app/" }
 ];
 
-const projectTexts = ["Text 1 for Project", "Commissioned by Silb, this website is a recreation of the profile layout of the game phigros, with a few things changed and information requested by the commissioner to be added.", "Text 3 for Project"];
+const projectTexts = ["It is a challenging website made for those with sharp thinking skills that want to test their abilities. As more puzzles are solved, more features and story pieces are unlocked. It's Unfinished", "Silb has commissioned the recreation of the profile layout from the game Phigros on this website. Several modifications have been made, incorporating specific information provided by the commissioner.", "Utilizing Local Storage, this website ensures secure storage of notes on your device. With customizable themes and an integrated music player, it fosters creativity and functionality."];
 
 let trititIndex = 0;
 let projectIndex = 0;
