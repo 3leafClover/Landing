@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Start the border animation after the page is loaded
         setTimeout(() => {
             loadingText.textContent = 'Loaded';
-        }, 2000);
+        }, 650);
     });
 
     borders.addEventListener("click", () => {
