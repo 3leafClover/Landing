@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Page loaded!");
 
+    // Get all the variables from HTML
     const borders = document.getElementById("borders");
-    borders.style.width = "0px";
-    borders.style.height = "0px";
-
     const loading = document.getElementById("loading");
     const background = document.getElementById("background");
     const loadingText = document.getElementById("loadingtext");
@@ -15,12 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const titleTriangle = document.getElementById("title-triangle");
     const project = document.getElementById("project");
     const tip = document.getElementById("right");
+    const music = document.getElementById("music");
+    const music1 = document.getElementById("music1");
+    const triangleRight = document.querySelector('.triangle-right');
+    const tritit = document.getElementById("tritit");
 
-    setTimeout(() => {
-        loading.style.animationName = "loading1";
-        loading.style.animationFillMode = "forwards";
-        loading.style.animationDuration = "1s";
-    }, 2000);
+    borders.style.width = "0px";
+    borders.style.height = "0px";
+
+    loading.style.animationName = "loading1";
+    loading.style.animationFillMode = "forwards";
+    loading.style.animationDuration = "1s";
 
     window.addEventListener("load", () => {
         borders.style.animationName = "borders";
@@ -31,25 +34,22 @@ document.addEventListener("DOMContentLoaded", () => {
             loadingText.textContent = 'Loaded';
         }, 650);
     });
+
     let clicked = false;
 
-    
     borders.addEventListener("click", () => {
         if (!clicked) {
-            const music = document.getElementById("music");
-            const music1 = document.getElementById("music1");
             music.play();
             music1.play();
             startSummoning();
             clicked = true; // Set the flag to true after it's clicked once
         }
 
-
         setTimeout(() => {
             musicname.style.animationName = "fadein";
             musicname.style.animationFillMode = "forwards";
             musicname.style.animationDuration = "10s";
-            background.style.opacity="100%";
+            background.style.opacity = "100%";
             setInterval(changeText, 21000);
         }, 2000);
 
@@ -91,8 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
             titleTriangle.style.animationFillMode = 'forwards';
             titleTriangle.style.animationDuration = '21s';
 
-            const triangleRight = document.querySelector('.triangle-right');
-        
             // Reset the animation
             triangleRight.style.animationName = '';
             void triangleRight.offsetWidth; // Trigger reflow
@@ -100,8 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
             triangleRight.style.animationFillMode = 'forwards';
             triangleRight.style.animationDuration = '21s';
 
-            const tritit = document.getElementById("tritit")
-    
             // Reset the animation
             tritit.style.animationName = '';
             tritit.style.animationName = 'trititexpand';
@@ -113,10 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
             project.style.animationFillMode = 'forwards';
             project.style.animationDuration = '21s';
         }, 14000);
-
-        
-        
-        
+                
     });
 });
 
